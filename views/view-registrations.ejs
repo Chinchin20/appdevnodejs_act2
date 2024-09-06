@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minsu Library - View Registrations</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="container">
+        <h2>Student Registrations</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Time In</th>
+                    <th>Time Out</th>
+                    <th>Actions</th> <!-- Added Actions column -->
+                </tr>
+            </thead>
+            <tbody>
+                <% registrations.forEach(registration => { %>
+                    <tr>
+                        <td><%= registration.id %></td>
+                        <td><%= registration.name %></td>
+                        <td><%= registration.timeIn %></td>
+                        <td><%= registration.timeOut || 'Not Yet Checked Out' %></td>
+                        <td>
+                            <!-- Delete button -->
+                            <form action="/delete-registration" method="POST" style="display: inline;">
+                                <input type="hidden" name="id" value="<%= registration.id %>">
+                                <button type="submit" class="button">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

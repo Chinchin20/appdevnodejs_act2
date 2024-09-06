@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minsu Library - Register In</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="container">
+        <h2>Register In</h2>
+        <form action="/register-in" method="POST">
+            <div>
+                <label for="id">Student ID</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div>
+                <label for="name">Student Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <button type="submit" class="button">Register In</button>
+        </form>
+    </div>
+
+    <%- include('partials/footer') %>
+</body>
+</html>
